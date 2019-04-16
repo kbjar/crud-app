@@ -38,6 +38,8 @@ public class Person {
     @Size(min = 5, max = 5, message = "Zip code is required with length 5")
     private String zipCode;
 
+    private Client client;
+
     public Integer getPersonId() {
         return personId;
     }
@@ -100,5 +102,39 @@ public class Person {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public String getDisplayName() {
+        return firstName + " " + lastName;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        if (!(obj instanceof Person)) {
+            return false;
+        }
+
+        final Person person2 = (Person) obj;
+
+        return this.getFirstName().equals(person2.getFirstName())
+                && this.getLastName().equals(person2.getLastName())
+                && this.getCity().equals(person2.getCity())
+                && this.getState().equals(person2.getState())
+                && this.getStreetAddress().equals(person2.getStreetAddress())
+                && this.getZipCode().equals(person2.getZipCode())
+                && this.getEmailAddress().equals(person2.getEmailAddress());
+
     }
 }

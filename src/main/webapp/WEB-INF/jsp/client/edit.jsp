@@ -1,19 +1,13 @@
-<%-- 
-    Document   : edit
-    Created on : Apr 22, 2011, 3:04:46 PM
-    Author     : FMilens
---%>
-
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions'%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<c:set var="operation" scope="page" value="${not empty person.personId ? 'Edit' : 'Create'}"/>
+<c:set var="operation" scope="page" value="${not empty client.clientId ? 'Edit' : 'Create'}"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><c:out value="${operation}"></c:out> Person</title>
+        <title><c:out value="${operation}"></c:out> Client</title>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -25,7 +19,7 @@
     <body>
         <div id="content" class="container">
             <div class="row">
-                <h1><c:out value="${operation}"></c:out> Person</h1>
+                <h1><c:out value="${operation}"></c:out> Client</h1>
                 <c:if test="${fn:length(errors) gt 0}">
                     <div class="alert alert-danger" role="alert">
                         <p>Please correct the following errors in your submission:</p>
@@ -37,25 +31,25 @@
                     </div>
                 </c:if>
 
-                <form:form id="personForm" class="needs-validation" novalidate="novalidate" action="${pageContext.request.contextPath}/person/save" method="POST" modelAttribute="person">
-                    <form:input type="hidden" name="personId" path="personId"/>
+                <form:form id="clientForm" class="needs-validation" novalidate="novalidate" action="${pageContext.request.contextPath}/client/edit" method="POST" modelAttribute="client">
+                    <form:input type="hidden" name="clientId" path="clientId"/>
 
                     <div class="form-group">
-                        <label class="control-label" for="firstName">First Name:</label>
+                        <label class="control-label" for="name">Client Name:</label>
                         <div>
-                            <form:input cssClass="form-control" type="text" name="firstName" path="firstName"/>
+                            <form:input cssClass="form-control" type="text" name="name" path="name"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="lastName">Last Name:</label>
+                        <label class="control-label" for="websiteUri">Website URI:</label>
                         <div>
-                            <form:input cssErrorClass="is-invalid" cssClass="form-control" type="text" name="lastName" path="lastName"/>
+                            <form:input cssErrorClass="is-invalid" cssClass="form-control" type="text" name="websiteUri" path="websiteUri"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="emailAddress">Email Address:</label>
+                        <label class="control-label" for="phoneNumber">Phone Number:</label>
                         <div>
-                            <form:input cssErrorClass="is-invalid" cssClass="form-control" type="text" name="emailAddress" path="emailAddress"/>
+                            <form:input cssErrorClass="is-invalid" cssClass="form-control" type="text" name="phoneNumber" path="phoneNumber"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -78,18 +72,17 @@
                             <form:input cssErrorClass="is-invalid" cssClass="form-control" type="text" name="zipCode" path="zipCode"/>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label class="control-label" for="clientId">Client:</label>
+                        <label class="control-label" for="personId">Contacts:</label>
                         <div>
-                            <form:select id="clientId" cssErrorClass="is-invalid" cssClass="form-control" path="client.clientId">
-                                <form:option value="" label="No Selection"/>
-                                <form:options itemValue="clientId" itemLabel="name" items="${clients}"/>
+                            <form:select multiple="true" id="personId" cssErrorClass="is-invalid" cssClass="form-control" path="contacts">
+                                <form:options itemValue="personId" itemLabel="displayName" items="${contacts}"/>
                             </form:select>
                         </div>
                     </div>
 
                     <button id="submitButton" name="submit" class="btn btn-primary" value="Submit">Submit</button>
+                    <%--todo: this cancel button needs to be fixed to go back to the client list rather than the person list--%>
                     <button id="cancelButton" name="Cancel" class="btn btn-secondary" value="Cancel">Cancel</button>
                     <%--uncomment to test server-side validation--%>
                     <%--<button id="clientValidationToggleButton" name="clientValidation" value="Client Validation">Turn client validation off</button>--%>

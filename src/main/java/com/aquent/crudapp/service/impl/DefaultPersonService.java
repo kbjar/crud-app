@@ -1,34 +1,23 @@
-package com.aquent.crudapp.service;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
-
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+package com.aquent.crudapp.service.impl;
 
 import com.aquent.crudapp.data.dao.PersonDao;
 import com.aquent.crudapp.domain.Person;
+import com.aquent.crudapp.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
- * Default implementation of {@link PersonService}.
+ * Default implementation of {@link com.aquent.crudapp.service.PersonService}.
  */
-public class DefaultPersonService implements PersonService {
+@Service
+public class DefaultPersonService extends DefaultGenericService<Person> implements PersonService<Person> {
 
+    @Autowired
     private PersonDao personDao;
-    private Validator validator;
-
-    public void setPersonDao(PersonDao personDao) {
-        this.personDao = personDao;
-    }
-
-    public void setValidator(Validator validator) {
-        this.validator = validator;
-    }
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -39,6 +28,8 @@ public class DefaultPersonService implements PersonService {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Person readPerson(Integer id) {
+        if (id == null) return null;
+
         return personDao.readPerson(id);
     }
 
@@ -60,14 +51,5 @@ public class DefaultPersonService implements PersonService {
         personDao.deletePerson(id);
     }
 
-    @Override
-    public List<String> validatePerson(Person person) {
-        Set<ConstraintViolation<Person>> violations = validator.validate(person);
-        List<String> errors = new ArrayList<String>(violations.size());
-        for (ConstraintViolation<Person> violation : violations) {
-            errors.add(violation.getMessage());
-        }
-        Collections.sort(errors);
-        return errors;
-    }
+
 }

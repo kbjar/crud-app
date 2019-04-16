@@ -1,13 +1,13 @@
 package com.aquent.crudapp.service;
 
-import java.util.List;
-
 import com.aquent.crudapp.domain.Person;
+
+import java.util.List;
 
 /**
  * Person operations.
  */
-public interface PersonService {
+public interface PersonService<T> extends GenericService<T> {
 
     /**
      * Retrieves all of the person records.
@@ -45,12 +45,4 @@ public interface PersonService {
      * @param id the person ID
      */
     void deletePerson(Integer id);
-
-    /**
-     * Validates populated person data.
-     *
-     * @param person the values to validate
-     * @return list of error messages
-     */
-    List<String> validatePerson(Person person);
 }
