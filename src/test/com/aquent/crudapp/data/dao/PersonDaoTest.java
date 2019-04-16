@@ -40,7 +40,7 @@ public class PersonDaoTest {
 
     @Test
     public void testDeletingPersonDeletesContact() {
-        // todo:
+        // todo: not a good test
         Person readPerson = personDao.readPerson(0);
         assertNotNull(readPerson);
 

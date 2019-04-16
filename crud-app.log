@@ -1,0 +1,20 @@
+2019-04-15 22:43:28,143 INFO org.springframework.boot.StartupInfoLogger [main] Starting PersonControllerTest on Kurt-PC with PID 1952 (started by Kurt in C:\Users\Kurt\IdeaProjects\crud-app\crud-app)
+2019-04-15 22:43:28,143 INFO org.springframework.boot.StartupInfoLogger [main] Starting PersonControllerTest on Kurt-PC with PID 1952 (started by Kurt in C:\Users\Kurt\IdeaProjects\crud-app\crud-app)
+2019-04-15 22:43:28,147 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-04-15 22:43:28,147 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-04-15 22:43:28,149 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-15 22:43:28,149 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-15 22:43:31,180 INFO org.springframework.boot.StartupInfoLogger [main] Started PersonControllerTest in 3.275 seconds (JVM running for 4.297)
+2019-04-15 22:43:31,180 INFO org.springframework.boot.StartupInfoLogger [main] Started PersonControllerTest in 3.275 seconds (JVM running for 4.297)
+2019-04-15 22:43:31,473 DEBUG com.aquent.crudapp.controller.PersonController [main] Getting person list
+2019-04-15 22:43:31,473 DEBUG com.aquent.crudapp.controller.PersonController [main] Getting person list
+2019-04-15 22:43:40,402 INFO org.springframework.boot.StartupInfoLogger [main] Starting PersonDaoTest on Kurt-PC with PID 7704 (started by Kurt in C:\Users\Kurt\IdeaProjects\crud-app\crud-app)
+2019-04-15 22:43:40,402 INFO org.springframework.boot.StartupInfoLogger [main] Starting PersonDaoTest on Kurt-PC with PID 7704 (started by Kurt in C:\Users\Kurt\IdeaProjects\crud-app\crud-app)
+2019-04-15 22:43:40,405 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-04-15 22:43:40,405 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE
+2019-04-15 22:43:40,406 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-15 22:43:40,406 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2019-04-15 22:43:43,470 INFO org.springframework.boot.StartupInfoLogger [main] Started PersonDaoTest in 3.289 seconds (JVM running for 4.199)
+2019-04-15 22:43:43,470 INFO org.springframework.boot.StartupInfoLogger [main] Started PersonDaoTest in 3.289 seconds (JVM running for 4.199)
+2019-04-15 22:43:43,752 INFO com.aquent.crudapp.data.dao.jdbc.ClientJdbcDao [main] Could not find a client for person 0
+2019-04-15 22:43:43,752 INFO com.aquent.crudapp.data.dao.jdbc.ClientJdbcDao [main] Could not find a client for person 0
