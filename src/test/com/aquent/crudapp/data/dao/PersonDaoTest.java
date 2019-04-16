@@ -1,5 +1,6 @@
 package com.aquent.crudapp.data.dao;
 
+import com.aquent.crudapp.domain.Client;
 import com.aquent.crudapp.domain.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,7 +31,7 @@ public class PersonDaoTest {
         person.setState("nc");
         person.setZipCode("28803");
         person.setStreetAddress("111 fake st");
-
+        person.setClient(new Client());
         Integer person1Id = personDao.createPerson(person);
         assertNotNull(person1Id);
 
